@@ -1,0 +1,392 @@
+// Target-state blueprint spec template. Copy this file, replace every
+// <<...>> placeholder with real content, and delete stops you cut.
+// Full-line // comments are dropped by the builder's loader.
+// Field reference: reference/content-spec.md
+{
+  "name": "<<output-file-base-name>>",
+  "document": {
+    "wordmark": "<<BLUEPRINT>>",
+    "kicker": ["<<ORGANIZATION + FUNCTION NAME>>", "FIELD GUIDE \u00b7 V1.0 \u00b7 <<MONTH YEAR>>"],
+    "title_lines": ["<<TITLE LINE 1>>", "<<TITLE LINE 2>>"],
+    "line_name": "<<LINE BADGE, e.g. WORKS LINE>>",
+    "subtitle": "<<The plan in one line>>",
+    "deck": "<<The deck sentence that sells the guide, in one or two short sentences.>>",
+    "doc_id": "<<BLUEPRINT \u00b7 The plan name \u00b7 v1.0 \u00b7 Mon Year>>",
+    "author_line": "<<Prepared by Name, Head of Function, for the audience>>",
+    "cover_cards": [
+      {"label": "<<SCOPE>>", "text": "<<Scope in one line: N service lines, N sectors, one plan>>"},
+      {"label": "<<ROUTE>>", "text": "<<Date range the plan covers>>"},
+      {"label": "<<READERS>>", "text": "<<Who this guide is for, in one line>>"}
+    ],
+    "cover_band": {
+      "label": "WHAT'S IN THE PLAN",
+      "items": ["<<1 charter>>", "<<1 team structure>>", "<<1 CONOPS>>", "<<1 RACI>>", "<<N processes>>", "<<1 operating rhythm>>", "<<1 roadmap>>", "<<N success measures>>"]
+    },
+    "line_top": {
+      "tag": ["DEPART", "<<MON YY>>"],
+      "stations": [
+        {"label": "<<STATION 1>>"}, {"label": "<<STATION 2>>"}, {"label": "<<STATION 3>>"},
+        {"label": "<<STATION 4>>"}, {"label": "<<STATION 5>>"}, {"label": "<<STATION 6>>"},
+        {"label": "<<STATION 7>>"}, {"label": "<<STATION 8>>"}
+      ]
+    },
+    "line_bottom": {
+      "tag": ["ARRIVE", "<<MON YY>>"],
+      "stations": [
+        {"label": "<<STATION 1>>"}, {"label": "<<STATION 2>>"}, {"label": "<<STATION 3>>"},
+        {"label": "<<STATION 4>>"}, {"label": "<<STATION 5>>"}, {"label": "<<STATION 6>>"},
+        {"label": "<<STATION 7>>"}, {"label": "<<STATION 8>>"}
+      ]
+    }
+  },
+  "stops": [
+    {
+      "kind": "letter",
+      "pill": "Start here",
+      "title": "Start here",
+      "blocks": [
+        {"type": "prose", "paragraphs": [
+          "Dear reader,",
+          "<<The questions the audience keeps asking, listed. This guide answers them in one place.>>",
+          "<<Why the function exists: the outcomes it serves, each traceable through the guide.>>",
+          "<<The metaphor, explained in one paragraph: what maps to what.>>"
+        ]},
+        {"type": "cards", "columns": 3, "cards": [
+          {"title": "Find your stop", "text": "<<The answer key on the next page takes you straight to the right page.>>"},
+          {"title": "Bring it with you", "text": "<<Use it in meetings. Write in the margins.>>"},
+          {"title": "Make it better", "text": "<<Tell us what is missing. The next version gets better because of you.>>"}
+        ]},
+        {"type": "prose", "paragraphs": ["<<Thank you and sign-off.>>", "<<Name, Head of Function>>"]}
+      ]
+    },
+    {
+      "pill": "Answers: all of them",
+      "title": "Find your stop",
+      "lede": "<<Every question we have been asked more than twice, and the page that answers it.>>",
+      "blocks": [
+        {"type": "index", "entries": [
+          {"question": "<<What is your team, and what's the charter?>>", "stops": "<<04>>"},
+          {"question": "<<Where are we headed?>>", "stops": "<<05>>"},
+          {"question": "<<Where's the RACI?>>", "stops": "<<NN>>"},
+          {"question": "<<What do you need from me?>>", "stops": "<<LAST>>"}
+        ]},
+        {"type": "prose", "paragraphs": ["<<How to read this guide: the color bar names the pillar that owns each answer. Acronyms and terms: the glossary stop.>>"]}
+      ]
+    },
+    {
+      "question": "<<What is your team, and what's the charter?>>",
+      "title": "<<Assertion title: how the function works, in the metaphor>>",
+      "lede": "<<The plan in one paragraph: the estate, the money, the scope, one blueprint.>>",
+      "blocks": [
+        {"type": "cards", "label": "<<THE FOUR PILLARS>>", "columns": 4, "cards": [
+          {"glyph": "S", "color": "blue", "title": "<<Strategy>>", "text": "<<Where we're going.>>"},
+          {"glyph": "A", "color": "orange", "title": "<<Architecture>>", "text": "<<What good looks like.>>"},
+          {"glyph": "G", "color": "teal", "title": "<<Governance>>", "text": "<<How decisions get made and stay made.>>"},
+          {"glyph": "P", "color": "purple", "title": "<<Performance>>", "text": "<<Proof it works.>>"}
+        ]},
+        {"type": "steps", "label": "<<HOW WE WORK>>", "steps": [
+          {"title": "<<Step 1>>", "text": "<<...>>"},
+          {"title": "<<Step 2>>", "text": "<<...>>"},
+          {"title": "<<Step 3>>", "text": "<<...>>"},
+          {"title": "<<Step 4>>", "text": "<<...>>"}
+        ]}
+      ]
+    },
+    {
+      "question": "<<Where are we headed?>>",
+      "title": "<<Assertion title: the destination in one phrase>>",
+      "lede": "<<The target state in one paragraph, and the minimum viable baseline rule.>>",
+      "blocks": [
+        {"type": "cards", "columns": 2, "cards": [
+          {"glyph": "*", "color": "orange", "title": "<<Principle 1>>", "text": "<<...>>"},
+          {"glyph": "=", "color": "orange", "title": "<<Principle 2>>", "text": "<<...>>"},
+          {"glyph": "@", "color": "blue", "title": "<<Principle 3>>", "text": "<<...>>"},
+          {"glyph": "%", "color": "blue", "title": "<<Principle 4>>", "text": "<<...>>"}
+        ]},
+        {"type": "band", "label": "WHY NOW", "items": [
+          {"lead": "<<Driver 1:>>", "text": "<<...>>"},
+          {"lead": "<<Driver 2:>>", "text": "<<...>>"},
+          {"lead": "<<Driver 3:>>", "text": "<<...>>"}
+        ]}
+      ]
+    },
+    {
+      "question": "<<What's your team structure?>>",
+      "title": "<<Metaphor name for the team>>",
+      "lede": "<<The team in one line: leads across pillars, federated members on a dotted line.>>",
+      "blocks": [
+        {"type": "cards", "columns": 3, "cards": [
+          {"glyph": "1", "color": "blue", "title": "<<Role or team 1>>", "text": "<<...>>"},
+          {"glyph": "2", "color": "orange", "title": "<<Role or team 2>>", "text": "<<...>>"},
+          {"glyph": "3", "color": "teal", "title": "<<Role or team 3>>", "text": "<<...>>"}
+        ]}
+      ]
+    },
+    {
+      "question": "<<Who owns what on your team?>>",
+      "title": "<<Who's who in the metaphor team>>",
+      "lede": "<<One line per person or role: what they own, what they decide.>>",
+      "blocks": [
+        {"type": "prose", "paragraphs": ["<<Roster prose or a cards block, one entry per lead.>>"]}
+      ]
+    },
+    {
+      "question": "<<What does <discipline> do?>>",
+      "title": "<<<Discipline>: its metaphor name>>",
+      "lede": "<<How strategy becomes capabilities. Rename this stop for your own domain map.>>",
+      "blocks": [
+        {"type": "prose", "paragraphs": ["<<The domain deep dive: what this discipline does, its artifacts, its consumers.>>"]}
+      ]
+    },
+    {
+      "question": "<<Do you have your CONOPS?>>",
+      "title": "<<CONOPS: how it runs, in the metaphor>>",
+      "lede": "<<The concept in one breath, then the detail.>>",
+      "blocks": [
+        {"type": "prose", "paragraphs": ["<<The concept of operations: who sets direction, who builds, who decides, how evidence flows.>>"]}
+      ]
+    },
+    {
+      "question": "<<Where do you stop and others start?>>",
+      "title": "<<Our neighbors and partners>>",
+      "lede": "<<What each partner owns, what we bring them, and what we need back.>>",
+      "blocks": [
+        {"type": "table", "columns": ["Partner", "They own", "We bring", "We need back"], "rows": [
+          ["<<Partner 1>>", "<<...>>", "<<...>>", "<<...>>"],
+          ["<<Partner 2>>", "<<...>>", "<<...>>", "<<...>>"]
+        ]}
+      ]
+    },
+    {
+      "question": "<<Who owns <contested area>: you or them?>>",
+      "title": "<<<Contested area>: who owns what>>",
+      "lede": "<<The contested boundary, drawn explicitly. One stop per contested boundary.>>",
+      "blocks": [
+        {"type": "cards", "columns": 2, "cards": [
+          {"title": "<<THEY OWN>>", "text": "<<...>>"},
+          {"title": "<<WE OWN>>", "text": "<<...>>"}
+        ]}
+      ]
+    },
+    {
+      "question": "<<Where are the handoffs?>>",
+      "title": "<<Handoffs with <counterparty>>>",
+      "lede": "<<Who hands what to whom, and where each handoff happens.>>",
+      "blocks": [
+        {"type": "table", "columns": ["#", "From -> To", "What changes hands", "Where it happens"], "widths": [5, 25, 40, 30], "rows": [
+          ["1", "<<A -> B>>", "<<...>>", "<<...>>"],
+          ["2", "<<B -> A>>", "<<...>>", "<<...>>"]
+        ]}
+      ]
+    },
+    {
+      "question": "<<Who decides what?>>",
+      "title": "<<Metaphor name for decision rights>>",
+      "lede": "<<Decision rights below the RACI's resolution: who proposes, who decides, who can appeal.>>",
+      "blocks": [
+        {"type": "prose", "paragraphs": ["<<The decision-rights narrative and any decision table.>>"]}
+      ]
+    },
+    {
+      "question": "<<Where's the RACI?>>",
+      "title": "<<The RACI: strategy and architecture>>",
+      "blocks": [
+        {"type": "table", "mode": "raci", "d_label": "<<Decision rule for the D chip, e.g. Board decides by vote>>",
+         "columns": ["Decision or activity", "<<ACTOR 1>>", "<<ACTOR 2>>", "<<ACTOR 3>>", "<<ACTOR 4>>"],
+         "widths": [40, 15, 15, 15, 15],
+         "rows": [
+           {"section": "<<STRATEGY>>", "color": "blue"},
+           ["<<Decision 1>>", "A", "R", "C", "-"],
+           ["<<Decision 2>>", "I", "A", "R", "C"],
+           {"section": "<<ARCHITECTURE>>", "color": "orange"},
+           ["<<Decision 3>>", "-", "A", "R", "D"]
+         ],
+         "note": "<<A tag under a letter names the one that holds it: write A::Tag in a cell.>>"}
+      ]
+    },
+    {
+      "question": "<<When do the board and the CoP meet?>>",
+      "title": "<<Metaphor name for the operating rhythm>>",
+      "lede": "<<Every forum, how often it meets, who runs it and what it produces.>>",
+      "blocks": [
+        {"type": "table", "columns": ["Forum", "Cadence", "Runs it", "Produces"], "rows": [
+          ["<<Forum 1>>", "<<Every 2 weeks>>", "<<...>>", "<<...>>"],
+          ["<<Forum 2>>", "<<Monthly>>", "<<...>>", "<<...>>"]
+        ]}
+      ]
+    },
+    {
+      "question": "<<Who sits on the board, and what does it decide?>>",
+      "title": "<<Metaphor name for the review board>>",
+      "lede": "<<The board decides; it does not design. Membership, quorum, what reaches it.>>",
+      "blocks": [
+        {"type": "prose", "paragraphs": ["<<Board charter in brief.>>"]}
+      ]
+    },
+    {
+      "question": "<<What is the CoP, and why should I show up?>>",
+      "title": "<<The Community of Practice>>",
+      "lede": "<<The board enforces the standards; the CoP makes them easy to follow.>>",
+      "blocks": [
+        {"type": "prose", "paragraphs": ["<<What the community does, who belongs, what members get.>>"]}
+      ]
+    },
+    {
+      "question": "<<What are your processes?>>",
+      "title": "<<Process 1: getting a design through>>",
+      "lede": "<<The flagship process, step by step. Add a second processes stop if you need it.>>",
+      "blocks": [
+        {"type": "steps", "steps": [
+          {"title": "<<Check the paved road>>", "owner": "<<ROLE>>", "text": "<<...>>"},
+          {"title": "<<Submit>>", "owner": "<<ROLE>>", "text": "<<...>>"},
+          {"title": "<<Triage>>", "owner": "<<ROLE>>", "text": "<<...>>"},
+          {"title": "<<Decide>>", "owner": "<<ROLE>>", "text": "<<...>>"}
+        ]}
+      ]
+    },
+    {
+      "question": "<<What do we actually get from you?>>",
+      "title": "<<What you get: the deliverables>>",
+      "lede": "<<Each deliverable, and the teams that use it.>>",
+      "blocks": [
+        {"type": "cards", "columns": 2, "cards": [
+          {"title": "<<Deliverable 1>>", "text": "<<What it is, who uses it, how often it lands.>>"},
+          {"title": "<<Deliverable 2>>", "text": "<<...>>"}
+        ]}
+      ]
+    },
+    {
+      "question": "<<Do you have a detailed roadmap?>>",
+      "title": "<<The route map>>",
+      "blocks": [
+        {"type": "roadmap",
+         "phases": [
+           {"label": "<<STAND UP>>", "span": 1, "band": "light", "tint": "#ffffff"},
+           {"label": "<<PROVE VALUE>>", "span": 2, "band": "amber", "tint": "#fdf6e0"},
+           {"label": "<<SCALE>>", "span": 1, "band": "ink", "tint": "#eef1f7"}
+         ],
+         "subs": ["<<Q1>>", "<<Q2>>", "<<Q3>>", "<<Q4>>"],
+         "milestones": [{"col": 0, "lead": "<<Mon:>>", "text": "<<milestone>>"}],
+         "rows": [
+           {"label": "<<Governance>>", "color": "blue", "cells": [
+             {"span": 1, "text": "<<...>>"}, {"span": 2, "text": "<<...>>"}, {"span": 1, "text": "<<...>>"}
+           ]},
+           {"label": "<<Standards>>", "color": "orange", "cells": [
+             {"span": 1, "text": "<<...>>"}, {"span": 2, "text": "<<...>>"}, {"span": 1, "text": "<<...>>"}
+           ]}
+         ]},
+        {"type": "timeline", "items": [
+          {"when": "<<MON YEAR>>", "text": "<<What lands.>>"},
+          {"when": "<<MON YEAR>>", "text": "<<What lands.>>"}
+        ]}
+      ]
+    },
+    {
+      "question": "<<When will I get architecture?>>",
+      "title": "<<When will I get architecture?>>",
+      "lede": "<<Everyone gets access on day one. Deeper support rolls out in waves.>>",
+      "blocks": [
+        {"type": "steps", "steps": [
+          {"title": "<<Access>>", "text": "<<What everyone gets on day one.>>"},
+          {"title": "<<Named architect>>", "text": "<<...>>"},
+          {"title": "<<Standards and patterns>>", "text": "<<...>>"},
+          {"title": "<<Roadmap and strategy>>", "text": "<<...>>"}
+        ]}
+      ]
+    },
+    {
+      "question": "<<What are the sprint plans?>>",
+      "title": "<<Sprint plan>>",
+      "lede": "<<Two-week sprints from charter sign-off to the value gate. Split across two stops when long.>>",
+      "blocks": [
+        {"type": "table", "columns": ["Sprint", "Focus", "Who gets what"], "rows": [
+          ["<<1>>", "<<...>>", "<<...>>"],
+          ["<<2>>", "<<...>>", "<<...>>"]
+        ]}
+      ]
+    },
+    {
+      "question": "<<How does this support the annual priorities?>>",
+      "title": "<<Every priority has a deliverable behind it>>",
+      "lede": "<<Each priority, the deliverable that serves it, and how its effect shows.>>",
+      "blocks": [
+        {"type": "table", "columns": ["Priority", "Deliverable", "Evidence"], "rows": [
+          ["<<Priority 1>>", "<<...>>", "<<...>>"],
+          ["<<Priority 2>>", "<<...>>", "<<...>>"]
+        ]}
+      ]
+    },
+    {
+      "question": "<<How will you measure success?>>",
+      "title": "<<Metaphor name for the measures stop>>",
+      "lede": "<<The measures, in three groups: early signals, proofs of value, health checks.>>",
+      "blocks": [
+        {"type": "groups", "groups": [
+          {"label": "EARLY SIGNALS", "color": "blue", "items": [
+            {"title": "<<Measure 1>>", "text": "<<...>>"},
+            {"title": "<<Measure 2>>", "text": "<<...>>"}
+          ]},
+          {"label": "PROOFS OF VALUE", "color": "orange", "items": [
+            {"title": "<<Measure 3>>", "text": "<<...>>"},
+            {"title": "<<Measure 4>>", "text": "<<...>>"}
+          ]},
+          {"label": "HEALTH CHECKS", "color": "teal", "items": [
+            {"title": "<<Measure 5>>", "text": "<<...>>"},
+            {"title": "<<Measure 6>>", "text": "<<...>>"}
+          ]}
+        ]}
+      ]
+    },
+    {
+      "question": "<<Do you need new tools?>>",
+      "title": "<<Infrastructure: tools we already own>>",
+      "lede": "<<No new tooling money to start. Each deliverable has one home in a tool we already pay for.>>",
+      "blocks": [
+        {"type": "cards", "columns": 2, "cards": [
+          {"title": "<<Tool 1>>", "text": "<<What lives there.>>"},
+          {"title": "<<Tool 2>>", "text": "<<What lives there.>>"}
+        ]}
+      ]
+    },
+    {
+      "question": "<<What are you assuming?>>",
+      "title": "<<Assumptions and constraints>>",
+      "lede": "<<What we assume, who confirms it, and what changes if it does not hold. Reviewed every quarter.>>",
+      "blocks": [
+        {"type": "table", "label": "ASSUMPTIONS TO CONFIRM",
+         "columns": ["#", "We assume", "Confirmed by", "By", "If it changes, see"],
+         "widths": [4, 44, 16, 10, 26],
+         "rows": [
+           ["1", "<<Assumption 1>>", "<<Owner>>", "<<Date>>", "<<Stop reference>>"],
+           ["2", "<<Assumption 2>>", "<<Owner>>", "<<Date>>", "<<Stop reference>>"]
+         ]}
+      ]
+    },
+    {
+      "question": "<<What does that acronym mean?>>",
+      "title": "<<The glossary, in the metaphor>>",
+      "blocks": [
+        {"type": "table", "columns": ["Term", "What it means"], "widths": [22, 78], "rows": [
+          ["<<TERM>>", "<<Definition in one line.>>"],
+          ["<<TERM>>", "<<Definition in one line.>>"]
+        ]}
+      ]
+    },
+    {
+      "question": "<<What do you need from me?>>",
+      "title": "<<Metaphor closing title: your part>>",
+      "blocks": [
+        {"type": "band", "label": "<<GRAND OPENING \u00b7 DATE>>", "items": [
+          {"text": "<<The end state in one sentence, and the results the reader will see.>>"}
+        ]},
+        {"type": "steps", "label": "YOUR FOUR PARTS", "steps": [
+          {"title": "<<Ask 1>>", "text": "<<The one thing needed to start on time.>>", "tag": "<<WHEN>>"},
+          {"title": "<<Ask 2>>", "text": "<<...>>", "tag": "<<WHEN>>"},
+          {"title": "<<Ask 3>>", "text": "<<...>>", "tag": "<<WHEN>>"},
+          {"title": "<<Ask 4>>", "text": "<<...>>", "tag": "<<WHEN>>"}
+        ]},
+        {"type": "prose", "paragraphs": ["<<Thank you for your partnership. Let's build.>>"]}
+      ]
+    }
+  ]
+}

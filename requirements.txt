@@ -1,0 +1,3 @@
+weasyprint>=60
+# System dependency (not pip): pdftoppm from poppler-utils, used for
+# the cover PNG and for QA page renders.
