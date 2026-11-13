@@ -315,7 +315,7 @@ def draw_footer(slide, doc, stop_no, total):
             tf.vertical_anchor = MSO_ANCHOR.MIDDLE
             for m in ("margin_left", "margin_right", "margin_top", "margin_bottom"):
                 setattr(tf, m, 0)
-            para(tf, [R(str(i), SANS, 7.5, True, "ink")], align=PP_ALIGN.CENTER, first=True)
+            para(tf, [R(f"{i:02d}", SANS, 7.5, True, "ink")], align=PP_ALIGN.CENTER, first=True)
         else:
             d = 0.075
             rect(slide, cx - d / 2, cy - d / 2, d, d, fill=CYCLE[(i - 1) % 4],
@@ -366,7 +366,11 @@ def prose_segs(block):
     paras = block["paragraphs"]
     for i, p in enumerate(paras):
         if isinstance(p, dict):
-            runs_spec = [(p.get("lead", ""), True), (p.get("text", ""), False)]
+            lead = p.get("lead", "")
+            text = p.get("text", "")
+            if lead and text and not lead[-1].isspace():
+                lead += " "
+            runs_spec = [(lead, True), (text, False)]
         else:
             runs_spec = [(str(p), False)]
         n = wrap_mixed(runs_spec, SANS, 10.5, CW)
@@ -590,22 +594,36 @@ def index_segs(block):
     gap = 0.24
     cellw = (CW - (cols - 1) * gap) / cols
     rows = [entries[i:i + cols] for i in range(0, len(entries), cols)]
+
+    def entry_parts(e):
+        q = len(wrap(e["question"], SANS, 10.5, cellw, bold=True))
+        h = (len(wrap(e["headline"], MONO, 8, cellw, spc=0.8))
+             if e.get("headline") else 0)
+        return q, h
+
+    def entry_h(e):
+        q, h = entry_parts(e)
+        return (lines_h(q, 10.5, 1.15) + 0.02
+                + (lines_h(h, 8, 1.15) + 0.025 if h else 0.0) + 0.14)
+
     segs = []
     for row in rows:
-        rh = 0.0
-        for e in row:
-            q = len(wrap(e["question"], SANS, 10.5, cellw, bold=True))
-            rh = max(rh, lines_h(q, 10.5, 1.3) + 0.24)
-        rh += 0.10
+        rh = max(entry_h(e) for e in row) + 0.04
 
         def make(row=row, rh=rh):
             def fn(slide, y):
                 for j, e in enumerate(row):
                     x = MX + j * (cellw + gap)
                     tf = tb(slide, x, y, cellw, rh)
-                    para(tf, [R(e["question"], SANS, 10.5, True, "ink")], lh=1.3, first=True)
-                    q = len(wrap(e["question"], SANS, 10.5, cellw, bold=True))
-                    tf = tb(slide, x, y + lines_h(q, 10.5, 1.3) + 0.03, cellw, 0.18)
+                    para(tf, [R(e["question"], SANS, 10.5, True, "ink")], lh=1.15, first=True)
+                    q, h = entry_parts(e)
+                    yy = y + lines_h(q, 10.5, 1.15) + 0.02
+                    if h:
+                        tf = tb(slide, x, yy, cellw, lines_h(h, 8, 1.15) + 0.04)
+                        para(tf, [R(e["headline"], MONO, 8, False, "muted", 0.8)],
+                             lh=1.15, first=True)
+                        yy += lines_h(h, 8, 1.15) + 0.025
+                    tf = tb(slide, x, yy, cellw, 0.18)
                     para(tf, [R("STOP " + str(e["stops"]), MONO, 8, True, "amber_dark", 0.8)],
                          first=True)
             return fn

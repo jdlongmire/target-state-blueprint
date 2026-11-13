@@ -200,14 +200,17 @@ h1.ctitle { font-size: 63pt; line-height: 0.98; color: #1a1d29;
   monospace; font-size: 8.3pt; color: #1a1d29; letter-spacing: 0.4pt;
   padding-top: 1.5pt; }
 .tltext { flex: 1 1 0; font-size: 9.5pt; line-height: 1.42; }
-.indexrows { display: flex; flex-direction: column; gap: 12pt;
+.indexrows { display: flex; flex-direction: column; gap: 7pt;
   margin-bottom: 10pt; }
 .irow { display: flex; gap: 14pt; }
 .ientry { flex: 1 1 0; break-inside: avoid; }
 .ientry .q { font-size: 10pt; font-weight: bold; color: #1a1d29;
   line-height: 1.3; }
 .ientry .s { font-family: "Liberation Mono", "DejaVu Sans Mono", monospace;
-  font-size: 7.8pt; color: #9a7410; letter-spacing: 1.2pt; margin-top: 2.5pt; }
+  font-size: 7.8pt; color: #9a7410; letter-spacing: 1.2pt; margin-top: 1.5pt; }
+.ientry .h { font-family: "Liberation Mono", "DejaVu Sans Mono", monospace;
+  font-size: 7.8pt; color: #6a6e78; letter-spacing: 0.6pt; margin-top: 1.5pt;
+  line-height: 1.3; }
 
 /* ---- tables ---- */
 .twrap { border: 1.3pt solid #1a1d29; border-radius: 9pt; overflow: hidden;
@@ -241,7 +244,7 @@ h1.ctitle { font-size: 63pt; line-height: 0.98; color: #1a1d29;
 
 /* ---- roadmap ---- */
 .rmwrap { border: 1.3pt solid #1a1d29; border-radius: 9pt; padding: 7pt;
-  margin-bottom: 10pt; }
+  margin-bottom: 10pt; break-inside: avoid; }
 table.rm { width: 100%; border-collapse: separate; border-spacing: 0; }
 table.rm thead { display: table-header-group; }
 table.rm th, table.rm td { vertical-align: top; }
@@ -539,7 +542,9 @@ def render_index(b):
             cells.append(
                 f'<div class="ientry"><div class="q">'
                 f'{esc(e["question"])}</div>'
-                f'<div class="s">STOP {esc(e["stops"])}</div></div>')
+                + (f'<div class="h">{esc(e["headline"])}</div>'
+                   if e.get("headline") else "")
+                + f'<div class="s">STOP {esc(e["stops"])}</div></div>')
         while len(cells) < 3:
             cells.append('<div class="ientry"></div>')
         rows.append('<div class="irow">' + "".join(cells) + "</div>")

@@ -113,9 +113,11 @@ item text to one or two lines.
 date column and a text column, hairline separated.
 
 ### index
-`{type: "index", entries: [{question, stops}]}`. The find-your-stop
-grid, three entries per row: the question in bold, then `STOP NN` in
-mono amber. `stops` is a string so ranges work (`"10-14"`). The
+`{type: "index", entries: [{question, headline?, stops}]}`. The
+find-your-stop grid, three entries per row: the question in bold, the
+stop's `headline` (when given) as a subordinate mono line under it,
+then `STOP NN` in mono amber. `stops` is a string so ranges work
+(`"10-14"`). The
 numbers are the author's responsibility: fill them in after the stop
 plan settles, and re-check after any reorder.
 
